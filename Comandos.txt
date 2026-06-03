@@ -1,0 +1,48 @@
+******LEVANTAR TODOS LOS SERVICIOS AL MISMO TIEMPO*****
+
+Start-Process uvicorn -ArgumentList "serv_clientes:app", "--port 8000", "--reload"; 
+Start-Process uvicorn -ArgumentList "serv_productos:app", "--port 8001", "--reload"; 
+Start-Process uvicorn -ArgumentList "serv_pedidos:app", "--port 8002", "--reload";
+Start-Process uvicorn -ArgumentList "serv_inventario:app", "--port 8003", "--reload"
+
+-------------------------------------------------------------
+******LEVANTAR SERVICIOS desde cmd *****
+cd C:\Users\beren\Documents\ITQ\Semestre_10\soa\shopnow
+start uvicorn serv_clientes:app --port 8000 --reload & start uvicorn serv_productos:app --port 8001 --reload & start uvicorn serv_pedidos:app --port 8002 --reload & start uvicorn serv_inventario:app --port 8003 --reload
+
+-------------------------------------------------------------
+
+******LEVANTAR SERVICIOS POR SEPARADO*****
+
+python -m uvicorn clientes.serv_clientes:app --port 8000 --reload;
+python -m uvicorn productos.serv_productos:app --port 8001 --reload;
+python -m uvicorn pedidos.serv_pedidos:app --port 8002 --reload;
+python -m uvicorn inventario.serv_inventario:app --port 8003 --reload
+
+
+******LEVANTAR INTERFACES*****
+
+streamlit run clientes_ui.py --server.port 8501
+streamlit run productos_ui.py --server.port 8502
+streamlit run inventario_ui.py --server.port 8503
+streamlit run pedidos_ui.py --server.port 8504
+
+
+
+-------------------------------------------------------------
+Rabbit MQ:
+Comando para habilitar la consola de administración:
+rabbitmq-plugins enable rabbitmq_management
+
+Abre tu navegador web y entra a http://localhost:15672.
+
+-------------------------------------------------------------
+
+Datos de BD Postgres: (Contraseña pgAdmin4: admin) Usar los mismos datos que proporcionó el profesor para nuestra base de datos
+Database: shopnow_663n
+User: shopnow_663n_user
+Password: mJKZ4Bs3pW5XqeK5c5FLlukVy1TUGEIl
+
+-------------------------------------------------------------
+
+CONTRASEÑA PARA TOKEN: itq123

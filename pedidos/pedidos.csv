@@ -1,0 +1,4 @@
+id_pedido,id_cliente,id_producto,cantidad,costo,estado
+1,1,2,40,100.0,activo
+2,1,2,2,100.0,activo
+3,2,1,10,100.0,pendiente
